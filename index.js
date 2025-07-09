@@ -1,14 +1,16 @@
 const express = require("express");
 const cors = require("cors");
 const prisma = require("./client");
+const autenticar = require("./auth");
+const validarUsuario = require("./validateUser");
 
 const app = express();
 const port = process.env.PORT || 3030;
 
 app.use(cors());
 app.use(express.json());
+app.use("/users", autenticar);
 
-// Rota para listar todos os users
 app.get("/users", async (req, res) => {
   try {
     const users = await prisma.usuario.findMany();
@@ -19,8 +21,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
-// Rota para criar um Usuário
-app.post("/users", async (req, res) => {
+app.post("/users", validarUsuario, async (req, res) => {
   try {
     const { nome, email, idade } = req.body;
     const usuario = await prisma.usuario.create({
@@ -33,7 +34,6 @@ app.post("/users", async (req, res) => {
   }
 });
 
-// Rota para buscar um Usuário pelo ID
 app.get("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -49,8 +49,7 @@ app.get("/users/:id", async (req, res) => {
   }
 });
 
-// Rota para atualizar um Usuário pelo ID
-app.put("/users/:id", async (req, res) => {
+app.put("/users/:id", validarUsuario, async (req, res) => {
   try {
     const { id } = req.params;
     const { nome, email, idade } = req.body;
@@ -65,7 +64,6 @@ app.put("/users/:id", async (req, res) => {
   }
 });
 
-// Rota para deletar um Usuário pelo ID
 app.delete("/users/:id", async (req, res) => {
   try {
     const { id } = req.params;
