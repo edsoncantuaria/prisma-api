@@ -6,7 +6,7 @@ const prisma = new PrismaClient();
 
 afterAll(async () => {
   await prisma.usuario.deleteMany(); // apaga todos os usuários
-  await prisma.$disconnect(); // desconecta do banco de dados
+  await prisma.$disconnect(); // desconecta do bd
 });
 
 let userIdCriado = null;
