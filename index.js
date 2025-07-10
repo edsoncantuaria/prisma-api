@@ -3,11 +3,13 @@ const cors = require("cors");
 const prisma = require("./client");
 const autenticar = require("./auth");
 const validarUsuario = require("./validateUser");
+const morgan = require("morgan");
 
 const app = express();
 const port = process.env.PORT || 3030;
 
 app.use(cors());
+app.use(morgan("dev"));
 app.use(express.json());
 app.use("/users", autenticar);
 
@@ -75,6 +77,10 @@ app.delete("/users/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando em http://localhost:${port}`);
-});
+module.exports = app;
+
+if (require.main === module) {
+  app.listen(port, () => {
+    console.log(`Servidor rodando em http://localhost:${port}`);
+  });
+}

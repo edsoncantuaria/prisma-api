@@ -6,8 +6,8 @@ const validarUsuario = [
     .withMessage("Nome deve ter pelo menos 2 letras"), //tipo ana?
   body("email").isEmail().withMessage("Email inválido"),
   body("idade")
-    .isInt({ min: 0 })
-    .withMessage("Idade deve ser um número inteiro positivo"),
+    .isInt({ min: 1, max: 60 })
+    .withMessage("A idade deve ser um número entre 1 e 60 anos"),
 
   (req, res, next) => {
     const erros = validationResult(req);
