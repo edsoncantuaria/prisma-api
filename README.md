@@ -69,7 +69,7 @@ npx prisma migrate dev --name init
 npx prisma generate
 ```
 
-### 5. Rodar a API localmente
+### 5. Rodar a API localmente // o PM2 é para Linux, fazendo DEPLOY.
 
 ```bash
 node index.js
@@ -87,7 +87,7 @@ pm2 start index.js --name prisma-api-test
 node resetDB.js
 ```
 
-### 7. Agendar reset diário via cron (exemplo às 3h da manhã)
+### 7. Agendar reset diário via cron (exemplo às 3h da manhã) //Também é para LINUX!!
 
 Abra o crontab:
 
@@ -119,7 +119,6 @@ npm test
 
 - Implementar logs com Morgan para monitorar requisições.
 - Middleware global de tratamento de erros.
-- Documentação da API com Swagger ou Postman.
 - Interface web com React para gerenciamento dos usuários.
 - Segurança mais avançada (OAuth, rate limiting).
 - Monitoramento e alertas.
