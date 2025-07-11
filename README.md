@@ -138,7 +138,8 @@ npm test
 
 ### Autor
 
-Edson Cantuaria — Analista de Teste e Desenvolvedor Backend iniciante com foco em QA e empreendedorismo.
+Edson Cantuaria — Analista de Teste.
+https://www.linkedin.com/in/edson-cantuaria/
 
 ---
 
