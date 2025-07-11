@@ -136,10 +136,6 @@ npm test
 
 ---
 
-Se quiser, posso ajudar a adaptar o projeto para React no frontend, expandir a documentação ou incluir monitoramento e logs avançados.
-
----
-
 ### Autor
 
 Edson Cantuaria — Analista de Teste e Desenvolvedor Backend iniciante com foco em QA e empreendedorismo.
